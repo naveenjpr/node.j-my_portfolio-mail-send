@@ -8,6 +8,7 @@ server.use(cors())
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
 server.use('/uploads/Navbar', express.static('uploads/Navbar'));
+server.use('/uploads/Addnewfield', express.static('uploads/Addnewfield'));
 
 
 
@@ -18,6 +19,7 @@ server.get("/", (request, response) => {
 require('./src/routes/frontend/user.routes')(server);
 require('./src/routes/backend/placeholder.routes')(server);
 require('./src/routes/frontend/Navbar.routes')(server);
+require('./src/routes/frontend/Add_new_field.route')(server);
 
 server.get("*", (request, response) => {
   response.send("Page not found.....")
