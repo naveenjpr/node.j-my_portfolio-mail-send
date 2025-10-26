@@ -18,6 +18,7 @@ server.get("/", (request, response) => {
 
 require('./src/routes/frontend/user.routes')(server);
 require('./src/routes/backend/placeholder.routes')(server);
+require('./src/routes/backend/multiStepForm.routes')(server);
 require('./src/routes/frontend/Navbar.routes')(server);
 require('./src/routes/frontend/Add_new_field.route')(server);
 
