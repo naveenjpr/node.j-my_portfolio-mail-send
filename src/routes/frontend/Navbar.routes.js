@@ -23,6 +23,5 @@ module.exports = (app) => {
   route.post("/add", uploadImage, navbar.create); //http://localhost:5000/api/backend/navbar/add
   route.get("/view", navbar.view); //http://localhost:5000/api/backend/navbar/view
 
-
   app.use("/api/backend/navbar", route);
 };
