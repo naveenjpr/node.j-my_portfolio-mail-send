@@ -1,30 +1,32 @@
-const express = require("express")
-const cors = require("cors")
-const mongoose = require("mongoose")
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
 
-const server = express()
-server.use(cors())
+const server = express();
+server.use(cors());
 
-server.use(express.json())
-server.use(express.urlencoded({ extended: true }))
-server.use('/uploads/Navbar', express.static('uploads/Navbar'));
-server.use('/uploads/Addnewfield', express.static('uploads/Addnewfield'));
-
-
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use("/uploads/Navbar", express.static("uploads/Navbar"));
+server.use("/uploads/Addnewfield", express.static("uploads/Addnewfield"));
+server.use("/uploads/Project", express.static("uploads/Project"));
 
 server.get("/", (request, response) => {
-  response.send("Server Working Fine.....")
-})
+  response.send("Server Working Fine.....");
+});
 
-require('./src/routes/frontend/user.routes')(server);
-require('./src/routes/backend/placeholder.routes')(server);
-require('./src/routes/backend/multiStepForm.routes')(server);
-require('./src/routes/frontend/Navbar.routes')(server);
-require('./src/routes/frontend/Add_new_field.route')(server);
+require("./src/routes/frontend/user.routes")(server);
+require("./src/routes/backend/placeholder.routes")(server);
+require("./src/routes/backend/multiStepForm.routes")(server);
+require("./src/routes/frontend/Navbar.routes")(server);
+require("./src/routes/frontend/Add_new_field.route")(server);
+
+//backend proje
+require("./src/routes/backend/project.routes")(server);
 
 server.get("*", (request, response) => {
-  response.send("Page not found.....")
-})
+  response.send("Page not found.....");
+});
 
 //naveensainijpr
 //Gionee123
@@ -35,11 +37,9 @@ mongoose
   )
   .then(() => {
     server.listen("5000", () => {
-      console.log("Database Connected!")
-    })
+      console.log("Database Connected!");
+    });
   })
   .catch((error) => {
-    console.log("Database Not Connected!" + error)
-  })
-
-  
+    console.log("Database Not Connected!" + error);
+  });
