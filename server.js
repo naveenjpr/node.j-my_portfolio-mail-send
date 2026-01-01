@@ -23,6 +23,7 @@ require("./src/routes/frontend/Add_new_field.route")(server);
 
 //backend proje
 require("./src/routes/backend/project.routes")(server);
+require("./src/routes/backend/mailSend.routes")(server);
 
 server.get("*", (request, response) => {
   response.send("Page not found.....");
